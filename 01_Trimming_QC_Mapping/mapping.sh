@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Walnut_Test
+#SBATCH --job-name=RNA_Mapping
 #SBATCH -n 1
 #SBATCH -N 1
 #SBATCH -c 6
@@ -9,8 +9,8 @@
 #SBATCH --array=[0-9]
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=micmartinez@uchc.edu
-#SBATCH --output Walnut_Test-%j.out
-#SBATCH --error Walnut_Test-%j.err
+#SBATCH --output RNA_Mapping-%j.out
+#SBATCH --error RNA_Mapping-%j.err
 
 
 
@@ -18,6 +18,7 @@ echo "HOSTNAME: `hostname`"
 echo "Start Time: `date`"
 
 #Make a temporary directory
+# ADJUST FILE PATHS AS NEEDED
 mkdir -p /labs/Rosenberg/mmartinez/temp
 export TMPDIR=/labs/Rosenberg/mmartinez/pipelineTest
 
@@ -26,14 +27,14 @@ export TMPDIR=/labs/Rosenberg/mmartinez/pipelineTest
 
 
 #Specify the paths to the reference genome files and adapters
-#Specify the paths to the reference genome files and adapters
+# ADJUST PATHS AS NEEDED
 ALIGNERINDEX="/labs/Rosenberg/mmartinez/HSap/Homo_sapiens"
 GTF="/labs/Rosenberg/mmartinez/Homo_sapiens.GRCh38.105.gtf"
 SPLICE_SITE="/labs/Rosenberg/mmartinez/splice_site"
 ADAPTERFILE="/isg/shared/apps/Trimmomatic/0.39/adapters/NexteraPE-PE.fa"
 
 #Path where the raw fastq files live
-	#This line needs to be changed when running!!!!!
+# ADJUST PATHS AS NEEDED
 #DataDir=/labs/Rosenberg/Shan/Walnut_Study_RNAseq/data/raw_fastq
 DataDir=/labs/Rosenberg/Shan/Walnut_Study_RNAseq/data/raw_fastq_test_run/
 
